@@ -4,7 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-
+/**
+ * Modell: Post
+ *
+ * Repräsentiert einen Beitrag in der Anwendung.
+ * Ein Beitrag gehört zu einem Benutzer und kann mehrere Kommentare haben.
+ */
 class Post extends Model
 {
     use HasFactory;

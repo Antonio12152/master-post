@@ -7,6 +7,14 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Hash;
 
+/**
+ * Modell: User
+ *
+ * Repräsentiert einen Benutzer der Anwendung.
+ * Ein Benutzer kann mehrere Beiträge (posts) und Kommentare (comments) erstellen.
+ * Enthält außerdem Logik zum automatischen Hashen des Passworts beim Setzen.
+ */
+
 class User extends Authenticatable
 {
     use Notifiable;

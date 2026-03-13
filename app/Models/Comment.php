@@ -5,10 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * Modell: Comment
+ *
+ * Repräsentiert einen Kommentar zu einem Beitrag.
+ * Ein Kommentar gehört zu einem Benutzer und einem Beitrag
+ * und kann als Antwort auf einen anderen Kommentar erstellt werden.
+ */
 class Comment extends Model
 {
     use HasFactory;
-    
+
     protected $fillable = [
         'post_id',
         'user_id',
