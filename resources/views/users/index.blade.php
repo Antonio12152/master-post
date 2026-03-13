@@ -13,7 +13,10 @@ $users: Collection<User> -->
         <div class="mx-auto  lg:mx-0">
             <h2 class="text-4xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-5xl">Users</h2>
         </div>
-        @include('form.query', ['url' => route('users.index')])
+        @include('form.query', [
+        'url' => route('users.index'),
+        'q' => 'u'
+        ])
         {{ $users->links() }}
         <div class="mx-auto mt-10 grid gap-x-8 gap-y-16 sm:mt-16 lg:mx-0 lg:grid-cols-3">
             @foreach ($users as $user)

@@ -13,7 +13,10 @@ $posts: Collection<Post> -->
         <div class="mx-auto  lg:mx-0">
             <h2 class="text-4xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-5xl">Posts</h2>
         </div>
-        @include('form.query', ['url' => route('posts.index')])
+        @include('form.query', [
+        'url' => route('posts.index'),
+        'q' => 'p'
+        ])
         {{ $posts->links() }}
         @foreach ($posts as $post)
         <a href="{{route('posts.show', $post->id)}}">
