@@ -33,7 +33,7 @@ class UserController extends Controller
      * @param int $id
      * @return \Illuminate\View\View
      */
-    public function show(Request $request, $id)
+    public function show(Request $request, int $id)
     {
         $sort = $request->get('sort', 'created_at');
         $direction = $request->get('direction', 'desc');
@@ -78,7 +78,7 @@ class UserController extends Controller
      * @param int $id
      * @return \Illuminate\View\View
      */
-    public function edit($id)
+    public function edit(int $id)
     {
         $user = User::findOrFail($id);
         return view('users.edit', compact('user'));
@@ -91,7 +91,7 @@ class UserController extends Controller
      * @param int $id
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(Request $request, $id)
+    public function update(Request $request,int $id)
     {
         $user = User::findOrFail($id);
 
@@ -113,7 +113,7 @@ class UserController extends Controller
      * @param int $id
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function destroy(Request $request, $id)
+    public function destroy(Request $request,int $id)
     {
         $user = User::findOrFail($id);
 

@@ -36,7 +36,7 @@ class CommentController extends Controller
      * @param int $id
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function destroy($id)
+    public function destroy(int $id)
     {
         Comment::destroy($id);
 

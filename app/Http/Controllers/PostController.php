@@ -39,7 +39,7 @@ class PostController extends Controller
      * @param int $id Die ID des Posts
      * @return \Illuminate\View\View
      */
-    public function show($id)
+    public function show(int $id)
     {
         $comments = Comment::with('user')->where('post_id', $id)->orderBy('created_at', 'desc')->get();
 
@@ -54,7 +54,7 @@ class PostController extends Controller
      * @param int $id Die ID des Benutzers, für den der Post erstellt wird
      * @return \Illuminate\View\View
      */
-    public function create($id)
+    public function create(int $id)
     {
         return view('posts.create', ['id' => $id]);
     }
@@ -76,7 +76,7 @@ class PostController extends Controller
      * @param int $id Die ID des zu bearbeitenden Posts
      * @return \Illuminate\View\View
      */
-    public function edit($id)
+    public function edit(int $id)
     {
         $post = Post::findOrFail($id);
         return view('posts.edit', compact('post'));
@@ -88,7 +88,7 @@ class PostController extends Controller
      * @param int $id Die ID des zu aktualisierenden Posts
      * @return \Illuminate\View\View
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, int $id)
     {
         $post = Post::findOrFail($id);
         $post->update($request->all());
@@ -101,7 +101,7 @@ class PostController extends Controller
      * @param int $id Die ID des zu löschenden Posts
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function destroy($id)
+    public function destroy(int $id)
     {
         Post::destroy($id);
 
