@@ -17,3 +17,35 @@ window.close_open = function (id, c) {
         button.innerText = "Hide comments";
     }
 }
+
+document.querySelectorAll('.upvote, .downvote').forEach(button => {
+    button.addEventListener('click', async (e) => {
+        const postId = button.dataset.id;
+        const voteType = button.dataset.type;
+        const vote = button.classList.contains('upvote') ? 1 : -1;
+
+        const token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+
+        const res = await fetch('/vote', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRF-TOKEN': token
+            },
+            body: JSON.stringify({
+                voteable_id: postId,
+                voteable_type: voteType,
+                vote: vote
+            })
+        });
+
+        const data = await res.json();
+
+        const containerId = voteType.includes('Comment') ? 'comment-' + postId : 'post-' + postId;
+        const container = document.getElementById(containerId);
+        if (container) {
+            const scoreSpan = container.querySelector('.score');
+            if (scoreSpan) scoreSpan.textContent = data.score;
+        }
+    });
+});

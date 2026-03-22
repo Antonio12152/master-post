@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Post Master</title>
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     @vite(['resources/css/app.css','resources/js/app.js'])
 </head>
 <!-- Hauptlayout der Seite.
@@ -13,6 +13,7 @@
 Definiert die grundlegende Seitenstruktur mit Navigation, Hauptinhalt und Footer.
 Die Navigation zeigt Links zu Nutzern, Beiträgen sowie Login/Registrierung oder
 Benutzerinformationen für angemeldete Nutzer. -->
+
 <body class="min-h-screen flex flex-col bg-white text-black dark:bg-gray-900 dark:text-white">
     <nav class="bg-white fixed w-full z-20 top-0 start-0 border-b border-default">
         <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">

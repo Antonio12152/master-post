@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\VoteController;
+
 // für alle Benutzer
 Route::get('/', function () {
     return view('start');
@@ -37,4 +39,5 @@ Route::middleware('auth')->group(function () {
     Route::patch('/posts/{id}', [PostController::class, 'update'])->name('posts.update');
     Route::post('/comments', [CommentController::class, 'store'])->name('comments.store');
     Route::delete('/posts/{id}', [PostController::class, 'destroy'])->name('posts.delete');
+    Route::post('/vote', [VoteController::class, 'vote'])->name('vote');
 });

@@ -17,13 +17,18 @@ $f = $f ?? true;
         </h3>
 
         @if($f)
-            <p class="mt-5 text-sm text-gray-600">
-                {{ $post->text }}
-            </p>
+        <p class="mt-5 text-sm text-gray-600">
+            {{ $post->text }}
+        </p>
+        <div id="post-{{ $post->id }}">
+            <button class="upvote" data-id="{{ $post->id }}" data-type="App\Models\Post">⬆️</button>
+            <span class="score">{{ $post->votes()->sum('vote') }}</span>
+            <button class="downvote" data-id="{{ $post->id }}" data-type="App\Models\Post">⬇️</button>
+        </div>
         @else
-            <p class="mt-5 line-clamp-3 text-sm text-gray-600">
-                {{ $post->text }}
-            </p>
+        <p class="mt-5 line-clamp-3 text-sm text-gray-600">
+            {{ $post->text }}
+        </p>
         @endif
 
     </div>
